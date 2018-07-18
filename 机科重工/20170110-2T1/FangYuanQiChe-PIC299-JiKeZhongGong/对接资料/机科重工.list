@@ -1,0 +1,8 @@
+<SendList m_dwCycles="1000">
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="0A02FF18000000000000000108AA55555555000000000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="1DEF00110000000000000001080000D00700000000000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="1DEF00110000000000000001080040000000000050000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="1DEF0010000000000000000108C000000000000000000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="1DEF0010000000000000000108C064A00F5802DC05000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="1D00FD0C000000000000000108580250003C006450000000" />
+</SendList>

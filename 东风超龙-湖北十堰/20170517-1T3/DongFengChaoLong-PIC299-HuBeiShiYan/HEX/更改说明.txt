@@ -1,0 +1,56 @@
+299-HuBeiShiYan-DongFengChaoLong-1T3-20170617.production-A1.00  
+                                              修改了
+                                              1.后舱门信号由后部KL15改KL11，显示图标和后部模块文字信息改动
+                                              2.远光灯逻辑改成(IN7 && !IN8);
+                                              3.近光灯逻辑改成(IN8 && IN6 && IN7);
+                                              4.更改后部第二路干燥器排气控制逻辑 ON-ACC档ON&(气压1&气压2）＞8.1个压时，输出3.5秒
+                                                                                  or(气压1or气压2）＞8.5个压时，长输出 
+                                              5.在温度信号旁边增加显示实际温度值 
+                                              6.后舱门信号取消悬空报警逻辑  6-17修改
+                                              7.电池信息那里第一页，取消显示右下两行信息，改成单体电压最高允许和最低允许
+
+299-HuBeiShiYan-DongFengChaoLong-1T3-20170619.production-A1.00  
+                                              修改了
+                                              1.空压机风扇和使能温度都设定为90度
+                                              2.PT1000采集那边悬空时设定为2000，不设0
+
+299-HuBeiShiYan-DongFengChaoLong-1T3-20170620.production-A1.00  
+                                              修改了
+                                              1.蜂鸣器报警条件改为ON档
+
+299-HuBeiShiYan-DongFengChaoLong-1T3-20170621.production-A1.00  
+                                              修改了
+                                              1.ABS图标颜色为黄色
+                                              2.更改了充电时有排气控制的问题，增加ON条件，和使能初值设为0
+                                              3.空压机风扇上电会转，增加了延时处理，和使能初值设为0
+
+299-HuBeiShiYan-DongFengChaoLong-1T3-20170626.production-A1.00  
+                                              修改了
+                                              1.中断1632行if(M_ON==0){if(QY_TIME>0)QY_TIME--; QY_count=0; }增加 QY_count=0;
+                                              2.风扇456行增加{KYJ_TIME=0;  KYJ_EN=0;}
+                                              3.风扇450行增加 R_PO4 判断
+                                              4.排气408行增加 {QY_TIME=0;QY_EN=0;} 
+                                              5.气压报警增加ON档判断，气压传感器电源取的ON档
+
+299-HuBeiShiYan-DongFengChaoLong-1T3-20170628.production-A1.00  
+                                              修改了
+                                              1.在排气控制长输出那边增加延时判断         
+                                                else if(M_ON && (((ADV[6]/10)>263) || ((ADV[5]/10)>263)) && (QY_count >= CAN_TIME))R_PO2=1;//(气压1or气压2）＞8.5个压时，长输出
+
+299-HuBeiShiYan-DongFengChaoLong-1T3-20170629.production-A1.00  
+                                              修改了
+                                              1.辅助系统里面绝缘监测仪那边单位不对和故障显示不对
+                                              
+299-HuBeiShiYan-DongFengChaoLong-1T3-20170728.production-V1.00  
+                                              修改了
+                                              1.显示主界面电压柱状条，从大变小时不更新
+                                              2.修改接插件号定义错误
+                                              3.增加显示模块版本号
+                                              4.充电时增加背光打开命令
+
+
+
+
+
+
+

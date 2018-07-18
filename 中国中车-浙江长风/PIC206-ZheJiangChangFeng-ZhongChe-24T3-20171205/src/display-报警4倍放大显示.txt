@@ -1,0 +1,237 @@
+
+void disp_CAN_baojing(void) {
+    static unsigned char al_index = 0;
+    unsigned int w=0;
+    unsigned char color=0;
+    if (alarm_update_flag == 0) { //3S 更新一次 
+        //LCD_DrawRect(x, y, 350 + 85 + 10, 36, BLACK); //清除显示区域
+        switch (al_index) {
+            case 0:
+                al_index = 1;
+                if(Fcan_count>=CAN_TIME){      
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_front,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+32, 435, Bmp_MK,   WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+112,435, Bmp_CANST,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+256,435, Bmp_ST[2],WHITE,color);
+                x=356;w=0; 
+                alarm_update_flag = 1;
+                break;   
+                }         
+            case 1: 
+                al_index=2;
+                if(Rcan_count>=CAN_TIME){
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_rear, WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+32, 435, Bmp_MK,   WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+112,435, Bmp_CANST,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+256,435, Bmp_ST[2],WHITE,color);
+                x=356;w=0; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 2: 
+                al_index=3; 
+                if(Mcan_count>=CAN_TIME){
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_top,  WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+32, 435, Bmp_MK,   WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+112,435, Bmp_CANST,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+256,435, Bmp_ST[2],WHITE,color);
+                x=356;w=0; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 3: 
+                al_index=4; 
+                if(ECU_TIME>=CAN_TIME){
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_ECU,  WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_CANST,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+224,435, Bmp_ST[2],WHITE,color);
+                x=324;w=4; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 4: 
+                al_index=5; 
+                if(ADR[0]<225){ //蓄电池电压低
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_xdc,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+112,435, Bmp_DY, WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+192,435, Bmp_gd, WHITE,color);
+                x=292;w=8; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 5: 
+                al_index=6; 
+                if(DC_Status[0]&0X01){ //电池单体电压过高
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_dt,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+160,435, Bmp_DY,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+240,435, Bmp_gg,WHITE,color);
+                x=340;w=2; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 6: 
+                al_index=7; 
+                if(DC_Status[0]&0X02){ //电池单体电压过低
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_dt,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+160,435, Bmp_DY,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+240,435, Bmp_gd,WHITE,color);
+                x=340;w=2; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 7: 
+                al_index=8; 
+                if(DC_Status[0]&0X04){ //电池SOC过高
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc, WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_SOC,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+144,435, Bmp_gg, WHITE,color);
+                x=244;w=14; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 8: 
+                al_index=9; 
+                if(DC_Status[0]&0X08){ //电池SOC过低
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc, WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_SOC,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+144,435, Bmp_gd, WHITE,color);
+                x=244;w=14; 
+                alarm_update_flag = 1;
+                break; 
+                }	
+            case 9: 
+                al_index=10; 
+                if(DC_Status[0]&0X10){ //内部通讯失败
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_nb,   WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_CANST,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+224,435, Bmp_ST[0],WHITE,color);
+                x=324;w=4; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 10: 
+                al_index=11; 
+                if(DC_Status[0]&0X20){ //总电压过低
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc,  WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_zong,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+112,435, Bmp_DY,  WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+192,435, Bmp_gd,  WHITE,color);
+                x=292;w=8; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 11: 
+                al_index=12; 
+                if(DC_Status[0]&0X40){ //总电压过压
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc,  WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_zong,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+112,435, Bmp_DY,  WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+192,435, Bmp_gg,  WHITE,color);
+                x=292;w=8; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 12: 
+                al_index=13; 
+                if(DC_Status[0]&0X80){ //不均衡
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc, WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_bjh,WHITE,color);
+                x=212;w=18;  
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 13: 
+                al_index=14; 
+                if(DC_Status[1]&0X01){ //
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc,  WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_wsgk,WHITE,color);
+                x=260;w=12;  
+                alarm_update_flag = 1;
+                break; 
+               }
+            case 14: 
+                al_index=15; 
+                if(DC_Status[1]&0X02){ //烟雾传感器报警 
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_ywcgq,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+192,435, Bmp_bj,   WHITE,color);
+                x=292;w=8;  
+                alarm_update_flag = 1;
+                break; 
+               }
+            case 15: 
+                al_index=16; 
+                if(DC_Status[1]&0X04){ //绝缘报警
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc,   WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_jyuan,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+160,435, Bmp_bj,   WHITE,color);
+                x=260;w=12; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 16: 
+                al_index=17; 
+                if(DC_Status[1]&0X08){ //放电电流过大
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_fd,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_dl,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+160,435, Bmp_gg,WHITE,color);
+                x=260;w=12; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 17: 
+                al_index=18; 
+                if(DC_Status[1]&0X10){ //充电电流过大
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_cdian,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_dl,   WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+160,435, Bmp_gg,   WHITE,color);
+                x=260;w=12; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 18: 
+                al_index=19; 
+                if(DC_Status[1]&0X20){ //温度过高
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_wd,WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+160,435, Bmp_gg,WHITE,color);
+                x=260;w=12; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 19: 
+                al_index=20; 
+                if(DC_Status[1]&0X40){ //温升极差大
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc,   WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_wsjcd,WHITE,color);
+                x=292;w=8;
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 20: 
+                al_index=21; 
+                if(DC_Status[1]&0X80){ //温度差过大
+                LCD_DrawImage1BPPZOOM_4(20,    435, Bmp_dc, WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+80, 435, Bmp_wd, WHITE,color);
+                LCD_DrawImage1BPPZOOM_4(20+160,435, Bmp_cgd,WHITE,color);
+                x=292;w=8; 
+                alarm_update_flag = 1;
+                break; 
+                }
+            case 21: 
+                al_index=0; 
+                if(Vspeed>=690){ //您已超速      
+                LCD_DrawImage1BPPZOOM_4(20, 435, Bmp_nycs,WHITE,color);
+                x=180;w=22; 
+                alarm_update_flag = 1;
+                break; 
+                }    
+            default:
+                al_index=0; 
+                x=20;w=42;//
+                break;
+        }
+              LCD_DrawRect(x, 435, w, 36, color); // 清除位置及其长度 
+    }
+}

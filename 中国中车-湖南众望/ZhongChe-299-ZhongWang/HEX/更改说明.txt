@@ -1,0 +1,3 @@
+299-HuNanYiYangZhongWang-ZhongChe-400T3-20170523  修改了
+                                                  1.display 1791行，模块功率输出状态更改0为绿，1为黄，2为红
+                                                  

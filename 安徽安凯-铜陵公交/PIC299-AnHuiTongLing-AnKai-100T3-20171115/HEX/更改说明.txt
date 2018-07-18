@@ -1,0 +1,16 @@
+
+PIC299-AnHuiTongLing-AnKai-100T3-20171115.production-20171218-V1.00
+                                                     修改了
+                                                     1.换成新刻度纸了，量程忘记改了，现在限制在0-10了对应步数960
+
+PIC299-AnHuiTongLing-AnKai-100T3-20171115.production-20171221-V1.00
+                                                     修改了
+                                                     1.速比为175
+
+PIC299-AnHuiTongLing-AnKai-100T3-20171115.production-20171221-V1.01
+                                                     修改了
+                                                     1.增加报文小灯，左转，右转，双闪
+
+PIC299-AnHuiTongLing-AnKai-100T3-20171115.production-20171222-V1.00
+                                                     修改了
+                                                     1.修改防乳化和绝缘时间逻辑错误

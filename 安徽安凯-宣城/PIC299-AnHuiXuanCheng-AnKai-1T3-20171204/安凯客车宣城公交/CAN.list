@@ -1,0 +1,20 @@
+<SendList m_dwCycles="1000">
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="4A10FF0C0000000000000001080000000000000100000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="4A0AFF0C0000000000000001080000000000000000000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="4A0BFF0C0000000000000001080000040000000000000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="4A32FF0C000000000000000108000000000000F401000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="4AEBFF0C0000000000000001080000000000040000000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="4828FF180000000000000001088813307564000000000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="525BFF180000000000000001080083898989898900000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="4829FF180000000000000001088A0CC40D64050064000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="33F4FE1809010000E00000010800798D24010000405C6803" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="482AFF180000000000000001086450584600000000000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="482BFF1800000000000000010800000000E880E880000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="492BFF1809010000E0000001080000000000000000438003" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="472CFF1809010000E0000001080000E880E803E880438003" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="472DFF1809010000E0000001085064D00700000000438003" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="525AFF1809010000E0000001080001010000000000438003" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="5702FF180000000000000001080000000000000005000000" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="525BFF1809010000E0000001085501010000000064438003" />
+    <tagSendUint iInterval="10" iTimes="1" len="1" bIncreaseID="0" bIncreaseData="0" obj="5802FF1809010000E0000001080701010000000000438003" />
+</SendList>

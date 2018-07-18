@@ -1,0 +1,15 @@
+
+PIC299-AnHuiXuanCheng-AnKai-1T3-20171204.production-20171218-V2.00
+                                                    修改了
+                                                    1.主要是刻度纸是新的，气压量程变了，现在限制在10对应960步数
+
+
+PIC299-AnHuiXuanCheng-AnKai-1T3-20171204.production-20171221-V2.00
+                                                    修改了
+                                                    1.增加报文，小灯，左转，右转，双闪
+
+
+PIC299-AnHuiXuanCheng-AnKai-1T3-20171204.production-20171222-V2.00
+                                                    修改了
+                                                    1.防乳化，绝缘逻辑判断
+
